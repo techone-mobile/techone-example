@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../style/AppColor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../frangment/SlideShow.dart';
+import '../fragment/SlideShow.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       TextEditingController();
   static final FocusNode _focusNode = FocusNode();
 
-  _nestedScrollViewController(){}
+  _nestedScrollViewController() {}
 
   final TextField _appBarTitile = TextField(
       controller: _textEditingController,
@@ -89,9 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           timeInSecForIos: 1,
                           backgroundColor: Colors.black87,
                           textColor: Colors.white,
-                          fontSize: 16.0
-                      );
-
+                          fontSize: 16.0);
                     },
                     child: Container(
                         padding: EdgeInsets.all(10),
@@ -105,30 +103,51 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
               }),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('Home'),
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.search), title: Text('Search')),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications),
+              title: Text('Notification'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_box),
+              title: Text('Account'),
+            ),
+          ],
+          onTap: (index) {},
+          type: BottomNavigationBarType.fixed,
+        ),
         body: NestedScrollView(
-            controller: _nestedScrollViewController(),
-            headerSliverBuilder: (context, isScrolled)  {
-              return <Widget>[
-                SliverAppBar(
-                  title: _appBarTitile,
-                  actions: <Widget>[
-                    IconButton(
-                        icon: Icon(Icons.shopping_cart, color: Colors.white),
-                        onPressed: () {})
-                  ],
-                  pinned: true,
-                  floating: true,
-                  forceElevated: isScrolled,
-                )
-              ];
-            },
-            body: Center(
-              child: Column(
-                children: <Widget>[
-                  SlideShow()
+          controller: _nestedScrollViewController(),
+          headerSliverBuilder: (context, isScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                title: _appBarTitile,
+                actions: <Widget>[
+                  IconButton(
+                      icon: Icon(Icons.shopping_cart, color: Colors.white),
+                      onPressed: () {})
                 ],
-              ),
-            )
+                pinned: false,
+                floating: true,
+                forceElevated: isScrolled,
+              )
+            ];
+          },
+          body: Column(
+            children: <Widget>[
+              Container(
+                height: 120.0,
+                child: slideShow(),
+              )
+            ],
+          ),
         ));
   }
 }
