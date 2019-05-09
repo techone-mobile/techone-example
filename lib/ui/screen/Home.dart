@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../style/AppColor.dart';
+import '../../style/AppColor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-void main() => runApp(Home());
+import '../frangment/SlideShow.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -42,6 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
       TextEditingController();
   static final FocusNode _focusNode = FocusNode();
 
+  _nestedScrollViewController(){}
+
   final TextField _appBarTitile = TextField(
       controller: _textEditingController,
       focusNode: _focusNode,
@@ -66,14 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: _appBarTitile,
-          actions: <Widget>[
-            IconButton(
-                icon: Icon(Icons.shopping_cart, color: Colors.white),
-                onPressed: () {})
-          ],
-        ),
         drawer: Drawer(
           child: ListView.builder(
               itemCount: _category.length + 1,
@@ -90,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return InkWell(
                     onTap: () {
                       Fluttertoast.showToast(
-                          msg: _category[index],
+                          msg: _category[index - 1],
                           toastLength: Toast.LENGTH_SHORT,
                           gravity: ToastGravity.BOTTOM,
                           timeInSecForIos: 1,
@@ -112,6 +105,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
               }),
         ),
-        body: Center());
+        body: NestedScrollView(
+            controller: _nestedScrollViewController(),
+            headerSliverBuilder: (context, isScrolled)  {
+              return <Widget>[
+                SliverAppBar(
+                  title: _appBarTitile,
+                  actions: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.shopping_cart, color: Colors.white),
+                        onPressed: () {})
+                  ],
+                  pinned: true,
+                  floating: true,
+                  forceElevated: isScrolled,
+                )
+              ];
+            },
+            body: Center(
+              child: Column(
+                children: <Widget>[
+                  SlideShow()
+                ],
+              ),
+            )
+        ));
   }
 }
