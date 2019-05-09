@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../values/Values.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../style/AppColor.dart';
 
-Category() {
+category() {
   return _girdView();
 }
 
@@ -16,23 +17,42 @@ _girdView() {
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.all(5),
-              color: Colors.white,
-              child: Column(
-                /*Make center H & V*/
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Icon(Values.categoryIcons[index]),
-                  Text(Values.categoryNames[index],
-                    style: TextStyle(
-                        fontSize: 11,
+            return InkWell(
+              onTap: () {
+                Fluttertoast.showToast(
+                    msg: 'Clicked to ' + Values.categoryNames[index],
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIos: 1,
+                    backgroundColor: Colors.black87,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              },
+              child: Container(
+                margin: EdgeInsets.all(5),
+                color: Colors.white,
+                child: Column(
+                  /*Make center H & V*/
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  /**/
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(bottom: 4),
+                      child: Icon(Values.categoryIcons[index],
+                          color: AppColor.primaryColor),
                     ),
-                  textAlign: TextAlign.center,)
-                ],
+                    Container(
+                      child: Text(
+                        Values.categoryNames[index],
+                        style: TextStyle(fontSize: 11, color: Colors.redAccent),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           }),

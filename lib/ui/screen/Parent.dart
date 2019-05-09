@@ -93,8 +93,12 @@ class _MyParentPageState extends State<MyParentPage> {
           onTap: (index) {
             _onBottomNavigationBarTap(index);
           },
+          currentIndex: _itemSelected,
+          selectedItemColor: AppColor.primaryColor,
+          backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
         ),
+        backgroundColor: Colors.white,
         body: _bodyUI[_itemSelected]);
   }
 }

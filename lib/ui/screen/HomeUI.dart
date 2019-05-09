@@ -54,7 +54,7 @@ HomeUI() {
         ),
         Container(
           height: 180.0,
-          child: Category(),
+          child: category(),
         )
       ],
     ),
