@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Values {
-  static final List<String> category = [
+  static final List<String> categoryNames = [
     'Camera',
     'TV & Audio',
     'Laptop & Computer',

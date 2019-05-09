@@ -54,7 +54,7 @@ class _MyParentPageState extends State<MyParentPage> {
     return Scaffold(
         drawer: Drawer(
           child: ListView.builder(
-              itemCount: Values.category.length + 1,
+              itemCount: Values.categoryNames.length + 1,
               itemBuilder: (context, index) {
                 if (index == 0) {
                   return DrawerHeader(
@@ -68,7 +68,7 @@ class _MyParentPageState extends State<MyParentPage> {
                   return InkWell(
                     onTap: () {
                       Fluttertoast.showToast(
-                          msg: Values.category[index - 1],
+                          msg: Values.categoryNames[index - 1],
                           toastLength: Toast.LENGTH_SHORT,
                           gravity: ToastGravity.BOTTOM,
                           timeInSecForIos: 1,
@@ -79,7 +79,7 @@ class _MyParentPageState extends State<MyParentPage> {
                     child: Container(
                         padding: EdgeInsets.all(10),
                         margin: EdgeInsets.all(5),
-                        child: Text(Values.category[index - 1],
+                        child: Text(Values.categoryNames[index - 1],
                             style: TextStyle(
                                 color: Colors.black54,
                                 fontSize: 16,

@@ -12,7 +12,7 @@ _girdView() {
     padding: EdgeInsets.all(5),
     child: Center(
       child: GridView.builder(
-          itemCount: Values.category.length,
+          itemCount: Values.categoryNames.length,
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           gridDelegate:
@@ -27,7 +27,7 @@ _girdView() {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Icon(Values.categoryIcons[index]),
-                  Text(Values.category[index],
+                  Text(Values.categoryNames[index],
                     style: TextStyle(
                         fontSize: 11,
                     ),
