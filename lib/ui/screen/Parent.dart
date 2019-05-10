@@ -17,6 +17,7 @@ class Parent extends StatelessWidget {
   }
 }
 
+/*StatefulWidget is Widget with mutable*/
 class MyParentPage extends StatefulWidget {
   MyParentPage({Key key, this.title}) : super(key: key);
 
@@ -26,6 +27,7 @@ class MyParentPage extends StatefulWidget {
   _MyParentPageState createState() => _MyParentPageState();
 }
 
+/*State is a manager of StatefulWidget*/
 class _MyParentPageState extends State<MyParentPage> {
   var _itemSelected = 0;
 

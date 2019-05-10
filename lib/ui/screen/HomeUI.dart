@@ -48,14 +48,8 @@ HomeUI() {
     },
     body: Column(
       children: <Widget>[
-        Container(
-          height: 120.0,
-          child: slideShow(),
-        ),
-        Container(
-          height: 180.0,
-          child: category(),
-        )
+        SlideShow(),
+        Category()
       ],
     ),
   );
