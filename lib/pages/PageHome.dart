@@ -101,14 +101,6 @@ List<Widget> buildGridTile(numberOfTiles) {
 }
 
 class PageHomeState extends State<PageHome> {
-//  final _gridView = new GridView.extent(
-//    maxCrossAxisExtent: 100.0,
-//    mainAxisSpacing: 5.0,
-//    crossAxisSpacing: 5.0,
-//    scrollDirection: Axis.horizontal,
-//    padding: const EdgeInsets.all(5.0),
-//    children: buildGridTile(6),
-//  );
   final gridView = new Container(
     padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
     height: 200.0,
