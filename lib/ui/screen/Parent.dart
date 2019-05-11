@@ -28,8 +28,10 @@ class MyParentPage extends StatefulWidget {
 }
 
 /*State is a manager of StatefulWidget*/
-class _MyParentPageState extends State<MyParentPage> {
+class _MyParentPageState extends State<MyParentPage>
+    with SingleTickerProviderStateMixin {
   var _itemSelected = 0;
+  TabController _tabController;
 
   final _bodyUI = [
     HomeUI(),
@@ -52,7 +54,16 @@ class _MyParentPageState extends State<MyParentPage> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    _tabController.animateTo(_itemSelected);
+
     return Scaffold(
         drawer: Drawer(
           child: ListView.builder(
@@ -101,6 +112,14 @@ class _MyParentPageState extends State<MyParentPage> {
           type: BottomNavigationBarType.fixed,
         ),
         backgroundColor: Colors.white,
-        body: _bodyUI[_itemSelected]);
+        body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _tabController,
+            children: <Widget>[
+              _bodyUI[0],
+              _bodyUI[1],
+              _bodyUI[2],
+              _bodyUI[3],
+            ]));
   }
 }
