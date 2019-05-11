@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+import '../carousel/carousel_pro.dart';
 import 'data/addtvaudio.dart';
 import 'data/addcameras.dart';
 
@@ -364,7 +364,7 @@ class PageHomeState extends State<PageHome> {
                       new Text(
                         tvaudio.name,
                         style:
-                            new TextStyle(color: Colors.black, fontSize: 12.0),
+                            new TextStyle(color: Colors.black,),
                         textAlign: TextAlign.center,
                       ),
                       new Row(
@@ -374,7 +374,6 @@ class PageHomeState extends State<PageHome> {
                             tvaudio.cost,
                             style: new TextStyle(
                                 color: Colors.red,
-                                fontSize: 11.0,
                                 fontWeight: FontWeight.bold),
                           )),
                           new Expanded(
@@ -567,6 +566,7 @@ class PageHomeState extends State<PageHome> {
     return new Scaffold(
         appBar: new AppBar(
           title: _textSeacrh,
+          centerTitle: false,
           actions: <Widget>[
             new Row(
               mainAxisAlignment: MainAxisAlignment.center,
