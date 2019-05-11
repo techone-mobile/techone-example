@@ -300,7 +300,7 @@ class PageHomeState extends State<PageHome> {
         if (index == leng - 1) {
           return new Container(
             width: 100.0,
-            height: 190.0,
+            height: 200.0,
             margin: new EdgeInsets.only(right: 5.0),
             decoration: BoxDecoration(color: Colors.white),
             child: new Center(
@@ -327,10 +327,10 @@ class PageHomeState extends State<PageHome> {
               new Container(
                 margin: new EdgeInsets.only(right: 5.0),
                 width: 130.0,
-                height: 190.0,
+                height: 200.0,
                 decoration: BoxDecoration(color: Colors.white),
                 child: new Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       new Stack(
                         alignment: const Alignment(-1, -1),
@@ -364,7 +364,7 @@ class PageHomeState extends State<PageHome> {
                       new Text(
                         tvaudio.name,
                         style:
-                            new TextStyle(color: Colors.black,),
+                            new TextStyle(color: Colors.black, fontSize: 11.0),
                         textAlign: TextAlign.center,
                       ),
                       new Row(
@@ -374,6 +374,7 @@ class PageHomeState extends State<PageHome> {
                             tvaudio.cost,
                             style: new TextStyle(
                                 color: Colors.red,
+                                fontSize: 11.0,
                                 fontWeight: FontWeight.bold),
                           )),
                           new Expanded(
@@ -403,7 +404,7 @@ class PageHomeState extends State<PageHome> {
         if (index == leng - 1) {
           return new Container(
             width: 100.0,
-            height: 190.0,
+            height: 200.0,
             margin: new EdgeInsets.only(right: 5.0),
             decoration:
                 BoxDecoration(color: Colors.white),
@@ -435,10 +436,10 @@ class PageHomeState extends State<PageHome> {
                 child: new Container(
                   margin: new EdgeInsets.only(right: 5.0),
                   width: 130.0,
-                  height: 190.0,
+                  height: 200.0,
                   decoration: BoxDecoration(color: Colors.white),
                   child: new Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
                         new Stack(
                           alignment: const Alignment(-1, -1),
@@ -472,7 +473,7 @@ class PageHomeState extends State<PageHome> {
                         new Text(
                           camera.name,
                           style:
-                          new TextStyle(color: Colors.black, fontSize: 12.0),
+                          new TextStyle(color: Colors.black, fontSize: 11.0),
                           textAlign: TextAlign.center,
                         ),
                         new Row(
@@ -528,7 +529,7 @@ class PageHomeState extends State<PageHome> {
               new Container(
                 margin: EdgeInsets.only(top: 5),
                 padding: EdgeInsets.only(left: 5.0),
-                height: 190.0,
+                height: 200.0,
                 child: new ListView(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
@@ -554,7 +555,7 @@ class PageHomeState extends State<PageHome> {
               new Container(
                 margin: EdgeInsets.only(top: 5),
                 padding: EdgeInsets.only(left: 5.0),
-                height: 190.0,
+                height: 200.0,
                 child: new ListView(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
