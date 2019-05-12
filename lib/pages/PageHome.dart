@@ -569,6 +569,7 @@ class PageHomeState extends State<PageHome> {
     // TODO: implement build
     return new Scaffold(
         appBar: new AppBar(
+          automaticallyImplyLeading: false,
           title: _textSeacrh,
           centerTitle: false,
           actions: <Widget>[
@@ -599,6 +600,8 @@ class PageHomeState extends State<PageHome> {
               listTvAudio,
             ],
           ),
-        ));
+        ),
+
+    );
   }
 }

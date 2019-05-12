@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/index.dart';
 void main() => runApp(MyApp());
-
 class MyApp extends StatelessWidget {
   ThemeData buildTheme() {
     final ThemeData base = ThemeData();
@@ -22,6 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: buildTheme(),
       home: new Home(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
