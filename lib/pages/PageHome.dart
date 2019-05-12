@@ -109,8 +109,10 @@ class PageHomeState extends State<PageHome> {
         borderRadius: new BorderRadius.only(
             bottomLeft: const Radius.circular(50.0),
             bottomRight: const Radius.circular(50.0))),
-    child: new GridView.extent(
+    child: new Center(
+      child: new GridView.extent(
       maxCrossAxisExtent: 100.0,
+      shrinkWrap: true,
       mainAxisSpacing: 5.0,
       crossAxisSpacing: 5.0,
       scrollDirection: Axis.horizontal,
@@ -240,6 +242,7 @@ class PageHomeState extends State<PageHome> {
         ),
       ],
     ),
+    )
   );
   final imagebanner = new Container(
       child: new ClipRRect(
