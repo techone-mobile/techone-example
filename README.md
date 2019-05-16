@@ -1,1 +1,1 @@
-# This is a Flutter Application with BloC Design pattern
+# This is a root application with BloC Design pattern
