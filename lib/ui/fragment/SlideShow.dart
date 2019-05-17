@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'Dot.dart';
 import '../style/AppColor.dart';
+import '../../blocs/SlideBloc.dart';
+import '../../models/SlideModel.dart';
 
 class SlideShow extends StatefulWidget {
   @override
@@ -12,8 +14,8 @@ class SlideShow extends StatefulWidget {
 
 class _MySlideState extends State<SlideShow> {
   PageController _pageController = PageController();
-  List<Widget> _dots;
-  List<Widget> _slides;
+  List<Widget> _dots = List<Widget>();
+  List<Widget> _slides = List<Widget>();
   int _currentPage = 0;
   Duration duration = Duration(seconds: 5);
   Timer _timer;
@@ -22,32 +24,60 @@ class _MySlideState extends State<SlideShow> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // after widget created
+    slideBloc.getAllSlide();
     _onPageChange(_currentPage);
   }
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return slideShow();
+      return StreamBuilder(
+      stream: slideBloc.stream(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasError) {
+          if (snapshot.hasData) {
+            return _slideShow(snapshot.data);
+          } else {
+            print('No data');
+            return _slideShow(snapshot.data);
+          }
+        } else {
+          print(snapshot.error);
+          return _slideShow(snapshot.data);
+        }
+      },
+    );
   }
 
-  slideShow() {
-    _dots = [
-      dot(Colors.black54),
-      dot(Colors.black54),
-      dot(Colors.black54),
-      dot(Colors.black54),
-    ];
+  _slideShow(List<SlideModel> slides) {
 
-    _slides = [
-      _slide('https://i.imgur.com/c7Uvh6h.jpg', 'A'),
-      _slide('https://cdn.shopify.com/s/files/1/0810/8331/files/category_banner_ip8.jpg?1347021331059137510', 'B'),
-      _slide('https://i.imgur.com/gAumC4V.jpg', 'C'),
-      _slide('https://i.imgur.com/n7g3Naf.jpg', 'D'),
-    ];
+    if (_dots.isNotEmpty && _slides.isNotEmpty) {
+      _dots.clear();
+      _slides.clear();
+    }
 
-    _dots[_currentPage] = dot(AppColor.primaryColor);
+    if (slides != null && slides.isNotEmpty) {
+      for (var slide in slides) {
+        _dots.add(slide.dot);
+        _slides.add(_slide(slide.urlImage, slide.name));
+      }
+    } else {
+      _dots = [
+        Dots.dot(Colors.black54),
+        Dots.dot(Colors.black54),
+        Dots.dot(Colors.black54),
+        Dots.dot(Colors.black54),
+      ];
+
+      _slides = [
+        _slide('', 'A'),
+        _slide('', 'B'),
+        _slide('', 'C'),
+        _slide('', 'D'),
+      ];
+    }
+
+    _dots[_currentPage] = Dots.dot(AppColor.primaryColor);
 
     return Column(
       children: <Widget>[
@@ -83,7 +113,7 @@ class _MySlideState extends State<SlideShow> {
     _timer = Timer.periodic(duration, (timer) {
       _currentPage++;
 
-      if(_currentPage >=   _slides.length)
+      if(_currentPage >= _slides.length)
         _currentPage = 0;
 
       _pageController.jumpToPage(_currentPage);

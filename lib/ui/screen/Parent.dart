@@ -65,7 +65,7 @@ class _MyParentPageState extends State<MyParentPage>
     _tabController.animateTo(_itemSelected);
 
     return Scaffold(
-        drawer: Drawer(
+        /*drawer: Drawer(
           child: ListView.builder(
               itemCount: Values.categoryNames.length + 1,
               itemBuilder: (context, index) {
@@ -100,7 +100,7 @@ class _MyParentPageState extends State<MyParentPage>
                   );
                 }
               }),
-        ),
+        ),*/
         bottomNavigationBar: BottomNavigationBar(
           items: Values.itemsBottomNavigationBar,
           onTap: (index) {
