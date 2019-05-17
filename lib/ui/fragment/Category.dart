@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../values/Values.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import '../style/AppColor.dart';
 
 class Category extends StatefulWidget {
   @override
@@ -51,7 +50,7 @@ class _MyCategoryState extends State<Category> {
                       Container(
                         margin: EdgeInsets.only(bottom: 4),
                         child: Icon(Values.categoryIcons[index],
-                            color: AppColor.primaryColor),
+                            color: Colors.red),
                       ),
                       Container(
                         child: Text(

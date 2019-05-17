@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../style/AppColor.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'HomeUI.dart';
 import '../../values/Values.dart';
@@ -10,7 +9,7 @@ class Parent extends StatelessWidget {
     return MaterialApp(
       title: 'TechOne',
       theme: ThemeData(
-        primarySwatch: AppColor.primaryColor,
+        primarySwatch: Colors.red,
       ),
       home: MyParentPage(title: 'TechOne'),
     );
@@ -107,7 +106,7 @@ class _MyParentPageState extends State<MyParentPage>
             _onBottomNavigationBarTap(index);
           },
           currentIndex: _itemSelected,
-          selectedItemColor: AppColor.primaryColor,
+          selectedItemColor: Colors.red,
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
         ),

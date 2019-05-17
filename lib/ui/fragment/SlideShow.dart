@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'Dot.dart';
-import '../style/AppColor.dart';
 import '../../blocs/SlideBloc.dart';
 import '../../models/SlideModel.dart';
 
@@ -77,7 +76,7 @@ class _MySlideState extends State<SlideShow> {
       ];
     }
 
-    _dots[_currentPage] = Dots.dot(AppColor.primaryColor);
+    _dots[_currentPage] = Dots.dot(Colors.red);
 
     return Column(
       children: <Widget>[

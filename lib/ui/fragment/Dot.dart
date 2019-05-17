@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../style/AppColor.dart';
 
 class Dots {
  static dot(Color color) {
