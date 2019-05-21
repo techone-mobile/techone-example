@@ -1,1 +1,1 @@
--
+This package contains model classes
