@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techone/ui/fragment/FlashDeals.dart';
 import '../fragment/SlideShow.dart';
 import '../fragment/Category.dart';
 
@@ -46,11 +47,14 @@ HomeUI() {
         )
       ];
     },
-    body: Column(
-      children: <Widget>[
-        SlideShow(),
-        Category()
-      ],
+    body: SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          SlideShow(),
+          Category(),
+          FlashDeals()
+        ],
+      ),
     ),
   );
 }

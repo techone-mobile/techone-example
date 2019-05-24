@@ -42,7 +42,7 @@ class _MyCategoryState extends State<Category> {
                   margin: EdgeInsets.all(5),
                   color: Colors.white,
                   child: Column(
-                    /*Make center H & V*/
+                    /*Make center V & H*/
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     /**/

@@ -8,7 +8,10 @@ import '../../models/SlideModel.dart';
 
 class SlideShow extends StatefulWidget {
   @override
-  createState() => _MySlideState();
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MySlideState();
+  }
 }
 
 class _MySlideState extends State<SlideShow> {
@@ -16,7 +19,7 @@ class _MySlideState extends State<SlideShow> {
   List<Widget> _dots = List<Widget>();
   List<Widget> _slides = List<Widget>();
   int _currentPage = 0;
-  Duration duration = Duration(seconds: 5);
+  Duration duration = Duration(seconds: 6);
   Timer _timer;
 
   @override
@@ -30,59 +33,41 @@ class _MySlideState extends State<SlideShow> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-      return StreamBuilder(
+    return StreamBuilder(
       stream: slideBloc.stream(),
       builder: (context, snapshot) {
         if (!snapshot.hasError) {
           if (snapshot.hasData) {
             return _slideShow(snapshot.data);
           } else {
-            print('No data');
-            return _slideShow(snapshot.data);
+            print('No data for Slide');
+            return Text('');
           }
         } else {
           print(snapshot.error);
-          return _slideShow(snapshot.data);
+          return Text('');
         }
       },
     );
   }
 
   _slideShow(List<SlideModel> slides) {
+    _dots.clear();
+    _slides.clear();
 
-    if (_dots.isNotEmpty && _slides.isNotEmpty) {
-      _dots.clear();
-      _slides.clear();
+    for (var slide in slides) {
+      _dots.add(slide.dot);
+      _slides.add(_slide(slide.urlImage, slide.name));
     }
 
-    if (slides != null && slides.isNotEmpty) {
-      for (var slide in slides) {
-        _dots.add(slide.dot);
-        _slides.add(_slide(slide.urlImage, slide.name));
-      }
-    } else {
-      _dots = [
-        Dots.dot(Colors.black54),
-        Dots.dot(Colors.black54),
-        Dots.dot(Colors.black54),
-        Dots.dot(Colors.black54),
-      ];
-
-      _slides = [
-        _slide('', 'A'),
-        _slide('', 'B'),
-        _slide('', 'C'),
-        _slide('', 'D'),
-      ];
-    }
-
+    if (_currentPage < _dots.length)
     _dots[_currentPage] = Dots.dot(Colors.red);
 
     return Column(
       children: <Widget>[
         Container(
           height: 120.0,
-            child: PageView(
+          child: PageView(
             controller: _pageController,
             scrollDirection: Axis.horizontal,
             children: _slides,
@@ -101,8 +86,7 @@ class _MySlideState extends State<SlideShow> {
   }
 
   _onPageChange(index) {
-    if(_timer != null && _timer.isActive)
-      _timer.cancel();
+    if (_timer != null && _timer.isActive) _timer.cancel();
 
     setState(() {
       _currentPage = index;
@@ -112,8 +96,7 @@ class _MySlideState extends State<SlideShow> {
     _timer = Timer.periodic(duration, (timer) {
       _currentPage++;
 
-      if(_currentPage >= _slides.length)
-        _currentPage = 0;
+      if (_currentPage >= _slides.length) _currentPage = 0;
 
       _pageController.jumpToPage(_currentPage);
       timer.cancel();
@@ -123,9 +106,7 @@ class _MySlideState extends State<SlideShow> {
   _slide(String url, String name) {
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: NetworkImage(url),
-              fit: BoxFit.cover)),
+          image: DecorationImage(image: NetworkImage(url), fit: BoxFit.cover)),
       child: Center(
           child: InkWell(
               onTap: () {
