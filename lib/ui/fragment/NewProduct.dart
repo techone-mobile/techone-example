@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:techone/blocs/MostSellBloc.dart';
-import '../../models/MostSellModel.dart';
+import 'package:techone/blocs/NewProductBloc.dart';
+import '../../models/NewProductModel.dart';
 
-class MostSell extends StatefulWidget {
+class NewProduct extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _MyMostSellState();
+    return _MyNewProductState();
   }
 }
 
-class _MyMostSellState extends State<MostSell> {
+class _MyNewProductState extends State<NewProduct> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    mostSellBloc.getAllMostSell();
+    newProductBloc.getAllNewProduct();
   }
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return StreamBuilder(
-      stream: mostSellBloc.stream(),
+      stream: newProductBloc.stream(),
       builder: (context, snapshot) {
         if (!snapshot.hasError) {
           if (snapshot.hasData) {
-            List<MostSellModel> data = snapshot.data;
+            List<NewProductModel> data = snapshot.data;
             return Column(
               children: <Widget>[
                 Row(
@@ -38,7 +38,7 @@ class _MyMostSellState extends State<MostSell> {
                       child: Container(
                         margin: EdgeInsets.only(left: 10, bottom: 5),
                         child: Text(
-                          'MOST SELL',
+                          'NEW PRODUCT',
                           style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
@@ -105,7 +105,7 @@ class _MyMostSellState extends State<MostSell> {
   }
 }
 
-items(List<MostSellModel> data, int index) {
+items(List<NewProductModel> data, int index) {
   return Container(
     width: 130,
     height: 220,
@@ -133,8 +133,9 @@ items(List<MostSellModel> data, int index) {
                 children: <Widget>[
                   Container(
                     color: Colors.red,
+                    padding: EdgeInsets.all(3),
                     child: Text(
-                      '',
+                      'New',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold),

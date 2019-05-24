@@ -34,16 +34,42 @@ class _MyFlashDealsState extends State<FlashDeals> {
                   /*Start H*/
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(left: 10),
-                      child: Text(
-                        'FLASH DEALS',
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red),
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(left: 10, bottom: 5),
+                        child: Text(
+                          'FLASH DEALS',
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red),
+                        ),
                       ),
-                    )
+                    ),
+                    Expanded(
+                      child: InkWell(
+                        onTap: (){
+                          Fluttertoast.showToast(
+                              msg: 'Clicked to show more',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIos: 1,
+                              backgroundColor: Colors.black87,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 10, bottom: 5),
+                          child: Text(
+                            'More',
+                            style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.red),
+                            textAlign: TextAlign.end,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Container(
@@ -106,6 +132,7 @@ items(List<FlashDealModel> data, int index) {
                 children: <Widget>[
                   Container(
                     color: Colors.red,
+                    padding: EdgeInsets.all(3),
                     child: Text(
                       '50%',
                       style: TextStyle(
