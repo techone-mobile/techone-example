@@ -60,10 +60,9 @@ class _MySlideState extends State<SlideShow> {
       _slides.add(_slide(slide.urlImage, slide.name));
     }
 
-    if (_currentPage < _dots.length)
-    _dots[_currentPage] = Dots.dot(Colors.red);
+    if (_currentPage < _dots.length) _dots[_currentPage] = Dots.dot(Colors.red);
 
-    return Column(
+    return Stack(
       children: <Widget>[
         Container(
           height: 120.0,
@@ -76,11 +75,15 @@ class _MySlideState extends State<SlideShow> {
             },
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: _dots,
-        )
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 2,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: _dots,
+          ),
+        ),
       ],
     );
   }
