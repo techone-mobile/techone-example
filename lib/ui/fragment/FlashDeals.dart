@@ -36,7 +36,7 @@ class _MyFlashDealsState extends State<FlashDeals> {
                   children: <Widget>[
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.only(left: 10, bottom: 5),
+                        margin: EdgeInsets.only(left: 10, bottom: 10, top: 10),
                         child: Text(
                           'FLASH DEALS',
                           style: TextStyle(
@@ -59,7 +59,7 @@ class _MyFlashDealsState extends State<FlashDeals> {
                               fontSize: 16.0);
                         },
                         child: Container(
-                          margin: EdgeInsets.only(right: 10, bottom: 5),
+                          margin: EdgeInsets.only(right: 10, bottom: 10, top: 10),
                           child: Text(
                             'More',
                             style: TextStyle(
@@ -74,6 +74,7 @@ class _MyFlashDealsState extends State<FlashDeals> {
                 ),
                 Container(
                   height: 220,
+                  color: Colors.white,
                   child: ListView.builder(
                     itemCount: data.length,
                     scrollDirection: Axis.horizontal,

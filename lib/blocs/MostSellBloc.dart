@@ -11,8 +11,8 @@ class MostSellBloc {
   }
 
   getAllMostSell() async {
-    List<MostSellModel> flashDeal = await _repository.getAllMostSell();
-    _streamController.add(flashDeal);
+    List<MostSellModel> mostSell = await _repository.getAllMostSell();
+    _streamController.add(mostSell);
   }
 
   dispose() {

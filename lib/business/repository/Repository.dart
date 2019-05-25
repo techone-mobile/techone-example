@@ -2,16 +2,19 @@ import 'package:techone/business/provider/FlashDealProvider.dart';
 import 'package:techone/business/provider/MostSellProvider.dart';
 import 'package:techone/business/provider/NewProductProvider.dart';
 import 'package:techone/business/provider/SlideProvider.dart';
+import 'package:techone/business/provider/SuggestionsProductProvider.dart';
 import 'package:techone/models/MostSellModel.dart';
 import 'package:techone/models/NewProductModel.dart';
 import 'package:techone/models/SlideModel.dart';
 import 'package:techone/models/FlashDealModel.dart';
+import 'package:techone/models/SuggestionsProductModel.dart';
 
 class Repository {
   SlideProvider _slideProvider = SlideProvider();
   FlashDealProvider _flashDealProvider = FlashDealProvider();
   MostSellProvider _mostSellProvider = MostSellProvider();
   NewProductProvider _newProductProvider = NewProductProvider();
+  SuggestionsProductProvider _suggestionsProductProvider = SuggestionsProductProvider();
 
   List<SlideModel> getAllSlide() {
     return _slideProvider.getList();
@@ -27,5 +30,9 @@ class Repository {
 
   List<NewProductModel> getAllNewProduct() {
     return _newProductProvider.getList();
+  }
+
+  List<SuggestionsProductModel> getAllSuggestionsProduct() {
+    return _suggestionsProductProvider.getList();
   }
 }

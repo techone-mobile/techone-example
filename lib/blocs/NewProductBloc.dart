@@ -11,8 +11,8 @@ class NewProductBloc {
   }
 
   getAllNewProduct() async {
-    List<NewProductModel> flashDeal = await _repository.getAllNewProduct();
-    _streamController.add(flashDeal);
+    List<NewProductModel> newProduct = await _repository.getAllNewProduct();
+    _streamController.add(newProduct);
   }
 
   dispose() {

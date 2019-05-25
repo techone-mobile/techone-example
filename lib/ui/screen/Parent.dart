@@ -110,7 +110,6 @@ class _MyParentPageState extends State<MyParentPage>
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
         ),
-        backgroundColor: Colors.white,
         body: TabBarView(
             physics: NeverScrollableScrollPhysics(),
             controller: _tabController,

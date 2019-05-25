@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:techone/ui/fragment/FlashDeals.dart';
 import 'package:techone/ui/fragment/MostSell.dart';
 import 'package:techone/ui/fragment/NewProduct.dart';
+import 'package:techone/ui/fragment/SuggestionsProduct.dart';
 import '../fragment/SlideShow.dart';
 import '../fragment/Category.dart';
 
@@ -67,6 +68,10 @@ HomeUI() {
           Container(
             margin: EdgeInsets.only(top: 5),
             child: MostSell(),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 5),
+            child: SuggestionsProduct(),
           )
         ],
       ),

@@ -36,7 +36,7 @@ class _MyMostSellState extends State<MostSell> {
                   children: <Widget>[
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.only(left: 10, bottom: 5),
+                        margin: EdgeInsets.only(left: 10, bottom: 10, top: 10),
                         child: Text(
                           'MOST SELL',
                           style: TextStyle(
@@ -60,7 +60,7 @@ class _MyMostSellState extends State<MostSell> {
                               fontSize: 16.0);
                         },
                         child: Container(
-                          margin: EdgeInsets.only(right: 10, bottom: 5),
+                          margin: EdgeInsets.only(right: 10, bottom: 10, top: 10),
                           child: Text(
                             'More',
                             style: TextStyle(
@@ -75,6 +75,7 @@ class _MyMostSellState extends State<MostSell> {
                 ),
                 Container(
                   height: 220,
+                  color: Colors.white,
                   child: ListView.builder(
                     itemCount: data.length,
                     scrollDirection: Axis.horizontal,
