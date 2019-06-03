@@ -1,7 +1,7 @@
 import '../../models/FlashDealModel.dart';
 
 class FlashDealProvider {
-  List<FlashDealModel> getList() {
+  List<FlashDealModel> load() {
     List<FlashDealModel> listFlashDeal = List<FlashDealModel>();
 
     listFlashDeal.add(FlashDealModel("jdsnfj", "EOS Canon 700d + Kit 18-55mm f3.5-5.6 IS STM like new 97%", "https://cf.shopee.vn/file/e6190dc3ffad328524aaedafacd0a476", BigInt.from(7890000), BigInt.from(8890000), 0, 10));

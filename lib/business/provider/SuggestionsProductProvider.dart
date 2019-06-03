@@ -1,7 +1,7 @@
 import 'package:techone/models/SuggestionsProductModel.dart';
 
 class SuggestionsProductProvider {
-  List<SuggestionsProductModel> getList() {
+  List<SuggestionsProductModel> load() {
     List<SuggestionsProductModel> listSuggestionsProduct = List<SuggestionsProductModel>();
 
     listSuggestionsProduct.add(SuggestionsProductModel("dfdhskfjhdi", "Xiaomi Mi Band 3", "https://salt.tikicdn.com/cache/550x550/ts/product/ec/78/8b/f2df6f0ae0494118caafd984f9f324e9.jpg", BigInt.from(550000)));

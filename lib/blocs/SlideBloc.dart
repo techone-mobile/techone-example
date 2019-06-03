@@ -10,8 +10,8 @@ class SlideBloc {
     return _streamController.stream;
   }
 
-  getAllSlide() async {
-    List<SlideModel> slides = await _repository.getAllSlide();
+  load() async {
+    List<SlideModel> slides = await _repository.loadSlide();
     _streamController.sink.add(slides);
   }
 

@@ -10,8 +10,8 @@ class MostSellBloc {
     return _streamController.stream;
   }
 
-  getAllMostSell() async {
-    List<MostSellModel> mostSell = await _repository.getAllMostSell();
+  load() async {
+    List<MostSellModel> mostSell = await _repository.loadMostSell();
     _streamController.add(mostSell);
   }
 

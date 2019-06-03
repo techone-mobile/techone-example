@@ -16,7 +16,7 @@ class _MyMostSellState extends State<MostSell> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    mostSellBloc.getAllMostSell();
+    mostSellBloc.load();
   }
 
   @override

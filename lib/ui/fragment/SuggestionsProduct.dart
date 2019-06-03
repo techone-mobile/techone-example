@@ -16,7 +16,7 @@ class _MySuggestionsProductState extends State<SuggestionsProduct> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    suggestionsProductBloc.getAllSuggestionsProduct();
+    suggestionsProductBloc.load();
   }
 
   @override

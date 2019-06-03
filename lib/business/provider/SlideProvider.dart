@@ -9,7 +9,7 @@ Hand data in this class
 * */
 
 class SlideProvider {
-  List<SlideModel> getList() {
+  List<SlideModel> load() {
     List<SlideModel> listSlide = List<SlideModel>();
 
     listSlide.add(SlideModel(

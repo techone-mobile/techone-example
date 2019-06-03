@@ -1,7 +1,7 @@
 import 'package:techone/models/NewProductModel.dart';
 
 class NewProductProvider{
-  List<NewProductModel> getList() {
+  List<NewProductModel> load() {
     List<NewProductModel> listMostSell = List<NewProductModel>();
 
     listMostSell.add(NewProductModel("dfdhskfjhdi", "Arirang Life EL-ALS263", "https://salt.tikicdn.com/cache/550x550/media/catalog/product/h/o/hop-ham-nong-arirang-life-el-als263-tim-11112048211-by-khong-7f0.jpg", BigInt.from(429000)));

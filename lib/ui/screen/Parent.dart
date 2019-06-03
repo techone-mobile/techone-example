@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'HomeUI.dart';
 import '../../values/Values.dart';
+import 'SearchUI.dart';
 
 class Parent extends StatelessWidget {
   @override
@@ -34,9 +34,7 @@ class _MyParentPageState extends State<MyParentPage>
 
   final _bodyUI = [
     HomeUI(),
-    Center(
-      child: Text('Search'),
-    ),
+    SearchUI(),
     Center(
       child: Text('Notification'),
     ),
@@ -64,42 +62,7 @@ class _MyParentPageState extends State<MyParentPage>
     _tabController.animateTo(_itemSelected);
 
     return Scaffold(
-        /*drawer: Drawer(
-          child: ListView.builder(
-              itemCount: Values.categoryNames.length + 1,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return DrawerHeader(
-                    child: Text(
-                      'TechOne',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    decoration: BoxDecoration(color: AppColor.primaryColor),
-                  );
-                } else {
-                  return InkWell(
-                    onTap: () {
-                      Fluttertoast.showToast(
-                          msg: Values.categoryNames[index - 1],
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          timeInSecForIos: 1,
-                          backgroundColor: Colors.black87,
-                          textColor: Colors.white,
-                          fontSize: 16.0);
-                    },
-                    child: Container(
-                        padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.all(5),
-                        child: Text(Values.categoryNames[index - 1],
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold))),
-                  );
-                }
-              }),
-        ),*/
+        resizeToAvoidBottomPadding: false,
         bottomNavigationBar: BottomNavigationBar(
           items: Values.itemsBottomNavigationBar,
           onTap: (index) {

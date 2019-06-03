@@ -1,7 +1,7 @@
 import 'package:techone/models/MostSellModel.dart';
 
 class MostSellProvider{
-  List<MostSellModel> getList() {
+  List<MostSellModel> load() {
     List<MostSellModel> listMostSell = List<MostSellModel>();
 
     listMostSell.add(MostSellModel("dfdhskfjhdi", "Xiaomi Mi Band 3", "https://salt.tikicdn.com/cache/550x550/ts/product/ec/78/8b/f2df6f0ae0494118caafd984f9f324e9.jpg", BigInt.from(550000)));

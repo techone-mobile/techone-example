@@ -16,7 +16,7 @@ class _MyFlashDealsState extends State<FlashDeals> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    flashDealBlock.getAllFlashDeal();
+    flashDealBlock.load();
   }
 
   @override

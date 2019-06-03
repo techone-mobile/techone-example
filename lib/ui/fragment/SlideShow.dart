@@ -26,7 +26,7 @@ class _MySlideState extends State<SlideShow> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    slideBloc.getAllSlide();
+    slideBloc.load();
     _onPageChange(_currentPage);
   }
 

@@ -10,8 +10,8 @@ class FlashDealBloc {
     return _streamController.stream;
   }
 
-  getAllFlashDeal() async {
-    List<FlashDealModel> flashDeal = await _repository.getAllFlashDeal();
+  load() async {
+    List<FlashDealModel> flashDeal = await _repository.loadFlashDeal();
     _streamController.add(flashDeal);
   }
 

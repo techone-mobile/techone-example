@@ -10,8 +10,8 @@ class NewProductBloc {
     return _streamController.stream;
   }
 
-  getAllNewProduct() async {
-    List<NewProductModel> newProduct = await _repository.getAllNewProduct();
+  load() async {
+    List<NewProductModel> newProduct = await _repository.loadNewProduct();
     _streamController.add(newProduct);
   }
 

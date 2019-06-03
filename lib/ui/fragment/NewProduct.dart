@@ -16,7 +16,7 @@ class _MyNewProductState extends State<NewProduct> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    newProductBloc.getAllNewProduct();
+    newProductBloc.load();
   }
 
   @override

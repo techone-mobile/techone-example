@@ -10,8 +10,8 @@ class SuggestionsProductBloc {
     return _streamController.stream;
   }
 
-  getAllSuggestionsProduct() async {
-    List<SuggestionsProductModel> suggestionsProduct = await _repository.getAllSuggestionsProduct();
+  load() async {
+    List<SuggestionsProductModel> suggestionsProduct = await _repository.loadSuggestionsProduct();
     _streamController.sink.add(suggestionsProduct);
   }
 
