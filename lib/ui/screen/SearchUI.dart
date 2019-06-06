@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:techone/blocs/SearchBLoc.dart';
 import 'package:techone/models/SearchHistoryModel.dart';
 import 'package:techone/models/SearchPreviewModel.dart';
@@ -77,16 +78,31 @@ class _MySearchState extends State<SearchUI> {
                               return ListView.separated(
                                 itemCount: data.length,
                                 itemBuilder: (context, index) {
-                                  return Container(
-                                    margin: EdgeInsets.only(
-                                        top: 5, left: 10, right: 5, bottom: 5),
-                                    child: Text(
-                                      data[index].keyword,
-                                      style: TextStyle(
-                                        color: Colors.black54,
-                                      ),
-                                    ),
-                                  );
+                                  return InkWell(
+                                      onTap: () {
+                                        Fluttertoast.showToast(
+                                            msg: 'Clicked to ' +
+                                                data[index].keyword,
+                                            toastLength: Toast.LENGTH_SHORT,
+                                            gravity: ToastGravity.BOTTOM,
+                                            timeInSecForIos: 1,
+                                            backgroundColor: Colors.black87,
+                                            textColor: Colors.white,
+                                            fontSize: 16.0);
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.only(
+                                            top: 5,
+                                            left: 10,
+                                            right: 5,
+                                            bottom: 5),
+                                        child: Text(
+                                          data[index].keyword,
+                                          style: TextStyle(
+                                            color: Colors.black54,
+                                          ),
+                                        ),
+                                      ));
                                 },
                                 separatorBuilder:
                                     (BuildContext context, int index) {
@@ -145,7 +161,19 @@ class _MySearchState extends State<SearchUI> {
               } else {
                 return ListView.separated(
                     itemBuilder: (context, index) {
-                      return Container(
+                      return InkWell(
+                        onTap: () {
+                          Fluttertoast.showToast(
+                              msg: 'Clicked to ' +
+                                  data[index].keyword,
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIos: 1,
+                              backgroundColor: Colors.black87,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        },
+                          child: Container(
                         padding: EdgeInsets.only(top: 5),
                         child: Row(
                           children: <Widget>[
@@ -153,12 +181,15 @@ class _MySearchState extends State<SearchUI> {
                               child: Container(
                                 margin: EdgeInsets.only(
                                     left: 10, top: 5, right: 5, bottom: 5),
-                                child: Text(data[index].keyword),
+                                child: Text(
+                                  data[index].keyword,
+                                  style: TextStyle(color: Colors.black54),
+                                ),
                               ),
                             )
                           ],
                         ),
-                      );
+                      ));
                     },
                     separatorBuilder: (context, index) {
                       return Divider(
@@ -194,8 +225,8 @@ class _MySearchState extends State<SearchUI> {
                   Expanded(
                     child: Text(
                       'Error',
-                      style: TextStyle(
-                          fontSize: 15, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                   )

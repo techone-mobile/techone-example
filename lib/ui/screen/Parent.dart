@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Account.dart';
 import 'HomeUI.dart';
 import '../../values/Values.dart';
 import 'SearchUI.dart';
@@ -38,9 +39,7 @@ class _MyParentPageState extends State<MyParentPage>
     Center(
       child: Text('Notification'),
     ),
-    Center(
-      child: Text('Account'),
-    ),
+    Account(),
   ];
 
   _onBottomNavigationBarTap(int index) {
