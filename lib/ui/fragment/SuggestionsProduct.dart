@@ -89,9 +89,9 @@ class _MySuggestionsProductState extends State<SuggestionsProduct> {
     List<Widget> widgets = List<Widget>();
 
     for (int index = 0; index < data.length; index += 2) {
-      List<Widget> widgetsChild = List<Widget>();
+      List<Widget> row = List<Widget>();
 
-      widgetsChild.add(
+      row.add(
         Expanded(
           child: InkWell(
             onTap: () {
@@ -108,7 +108,7 @@ class _MySuggestionsProductState extends State<SuggestionsProduct> {
               height: 200,
               color: Colors.white,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Stack(
                     children: <Widget>[
@@ -156,7 +156,7 @@ class _MySuggestionsProductState extends State<SuggestionsProduct> {
         ),
       );
       if (index + 1 < data.length) {
-        widgetsChild.add(
+        row.add(
           Expanded(
             child: InkWell(
               onTap: () {
@@ -173,7 +173,7 @@ class _MySuggestionsProductState extends State<SuggestionsProduct> {
                 height: 200,
                 color: Colors.white,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Stack(
                       children: <Widget>[
@@ -220,9 +220,47 @@ class _MySuggestionsProductState extends State<SuggestionsProduct> {
             ),
           ),
         );
+      } else {
+        row.add(
+          Expanded(
+            child: InkWell(
+              onTap: () {
+              },
+              child: Container(
+                height: 200,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Stack(
+                      children: <Widget>[
+                        Container(
+                          height: 130,
+                          width: 200,
+                          margin:
+                          EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                          child: Center(),
+                        ),
+                        Text('')
+                      ],
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 5, left: 10, right: 10),
+                      child: Center(),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 10, right: 10),
+                      child: Center(),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
       }
       widgets.add(Row(
-          mainAxisAlignment: MainAxisAlignment.center, children: widgetsChild));
+          mainAxisAlignment: MainAxisAlignment.center, children: row));
     }
 
     return Column(
