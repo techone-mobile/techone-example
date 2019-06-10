@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:techone/ui/screen/Notification.dart';
+import 'package:techone/ui/screen/NotificationUI.dart';
 import 'Account.dart';
 import 'HomeUI.dart';
 import '../../values/Values.dart';
