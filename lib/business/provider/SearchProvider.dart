@@ -27,7 +27,7 @@ class SearchProvider {
   }
 
   loadPreview(String keyword) {
-    String _keyword = keyword.trim().toLowerCase();
+    String _keyword = keyword.toLowerCase();
     print('Keyword: ' + _keyword);
     List<SearchPreviewModel> data = List<SearchPreviewModel>();
     List<SearchPreviewModel> result = List<SearchPreviewModel>();
@@ -40,7 +40,7 @@ class SearchProvider {
         "Samsung Galaxy S10", "", ["samsung", "s10", "galaxy"], ""));
     data.add(SearchPreviewModel("SKMEI 1155B", "", ["skmei", "watch"], ""));
     data.add(
-        SearchPreviewModel("SSD 240GB WD", "", ["ssd", "wd", "120gb"], ""));
+        SearchPreviewModel("SSD 240GB WD", "", ["ssd", "wd", "240gb"], ""));
 
     data.add(
         SearchPreviewModel("Xiaomi Miband 2", "", ["xiaomi", "miband"], ""));
@@ -48,41 +48,49 @@ class SearchProvider {
         SearchPreviewModel("Bitits Hunter", "", ["bitits", "hunter x"], ""));
     data.add(SearchPreviewModel(
         "Samsung Galaxy S8", "", ["samsung", "s8", "galaxy"], ""));
-    data.add(SearchPreviewModel("Apple Watch S4", "", ["skmei", "watch"], ""));
     data.add(
         SearchPreviewModel("SSD 120GB WD", "", ["ssd", "wd", "120gb"], ""));
 
-    data.add(
-        SearchPreviewModel("LG G6", "", ["lg", "g6"], ""));
-    data.add(
-        SearchPreviewModel("Genius DX-120", "", ["genius", "DX120"], ""));
+    data.add(SearchPreviewModel("LG G6", "", ["lg", "g6"], ""));
+    data.add(SearchPreviewModel("Genius DX-120", "", ["genius", "DX120"], ""));
     data.add(SearchPreviewModel(
-        "EOS Canon 700d + Kit 18-55mm f3.5-5.6 IS STM like new 97%", "", ["eos", "canon", "700d", "kit"], ""));
+        "EOS Canon 700d + Kit 18-55mm f3.5-5.6 IS STM like new 97%",
+        "",
+        ["eos", "canon", "700d", "kit"],
+        ""));
     data.add(SearchPreviewModel("Apple Watch S4", "", ["skmei", "watch"], ""));
-    data.add(
-        SearchPreviewModel("Balo Level 3 PUBG LAZA BL384", "", ["balo", "pupg"], ""));
+    data.add(SearchPreviewModel(
+        "Balo Level 3 PUBG LAZA BL384", "", ["balo", "pupg"], ""));
 
     if (_keyword.contains(" ")) {
-      for(int i=0; i<data.length; i++) {
-        if(data[i].keyword.trim().toLowerCase().contains(_keyword)) {
+      print("Search in product name");
+      result.clear();
+      for (int i = 0; i < data.length; i++) {
+        if (data[i]
+            .productName
+            .trim()
+            .toLowerCase()
+            .contains(_keyword.trim())) {
           result.add(data[i]);
-          print(data[i].keyword);
-        } else {
-          print('Not match');
+          print(data[i].productName);
         }
       }
+      if (result.isEmpty)
+        print('Not match');
     } else {
+      print("Search in tag");
+      result.clear();
       for (int i = 0; i < data.length; i++) {
         for (int j = 0; j < data[i].tag.length; j++) {
           if (data[i].tag[j].trim().toLowerCase().contains(_keyword)) {
             result.add(data[i]);
-            print(data[i].keyword);
+            print(data[i].productName);
             break;
-          } else {
-            print('Not match');
           }
         }
       }
+      if (result.isEmpty)
+        print('Not match');
     }
 
     return result;

@@ -165,7 +165,7 @@ class _MySearchState extends State<SearchUI> {
                         onTap: () {
                           Fluttertoast.showToast(
                               msg: 'Clicked to ' +
-                                  data[index].keyword,
+                                  data[index].productName,
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.BOTTOM,
                               timeInSecForIos: 1,
@@ -182,7 +182,7 @@ class _MySearchState extends State<SearchUI> {
                                 margin: EdgeInsets.only(
                                     left: 10, top: 5, right: 5, bottom: 5),
                                 child: Text(
-                                  data[index].keyword,
+                                  data[index].productName,
                                   style: TextStyle(color: Colors.black54),
                                 ),
                               ),
