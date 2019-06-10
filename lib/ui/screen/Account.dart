@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-class Account extends StatefulWidget {
+class AccountUI extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _MyAccountState();
+    return _MyAccountUIState();
   }
 }
 
-class _MyAccountState extends State<Account> {
+class _MyAccountUIState extends State<AccountUI> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -58,11 +59,23 @@ class _MyAccountState extends State<Account> {
                       ),
                       Container(
                         margin: EdgeInsets.only(top: 5),
-                        child: Text(
-                          'Logout',
-                          style: TextStyle(
-                            color: Colors.orangeAccent,
-                            fontSize: 13,
+                        child: InkWell(
+                          onTap: () {
+                            Fluttertoast.showToast(
+                                msg: 'Clicked to Logout',
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.BOTTOM,
+                                timeInSecForIos: 1,
+                                backgroundColor: Colors.black87,
+                                textColor: Colors.white,
+                                fontSize: 16.0);
+                          },
+                          child: Text(
+                            'Logout',
+                            style: TextStyle(
+                              color: Colors.orangeAccent,
+                              fontSize: 13,
+                            ),
                           ),
                         ),
                       )
@@ -89,15 +102,26 @@ class _MyAccountState extends State<Account> {
                             ),
                           ),
                           Expanded(
-                            flex: 10,
-                            child: Text(
-                              'Setting',
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          )
+                              flex: 10,
+                              child: InkWell(
+                                onTap: () {
+                                  Fluttertoast.showToast(
+                                      msg: 'Clicked to Settings',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIos: 1,
+                                      backgroundColor: Colors.black87,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                },
+                                child: Text(
+                                  'Setting',
+                                  style: TextStyle(
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                              ))
                         ],
                       ),
                     ),
@@ -114,15 +138,26 @@ class _MyAccountState extends State<Account> {
                             ),
                           ),
                           Expanded(
-                            flex: 10,
-                            child: Text(
-                              'About',
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          )
+                              flex: 10,
+                              child: InkWell(
+                                onTap: () {
+                                  Fluttertoast.showToast(
+                                      msg: 'Clicked to About',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIos: 1,
+                                      backgroundColor: Colors.black87,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                },
+                                child: Text(
+                                  'About',
+                                  style: TextStyle(
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                              ))
                         ],
                       ),
                     ),
@@ -139,15 +174,26 @@ class _MyAccountState extends State<Account> {
                             ),
                           ),
                           Expanded(
-                            flex: 10,
-                            child: Text(
-                              'Helps',
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          )
+                              flex: 10,
+                              child: InkWell(
+                                onTap: () {
+                                  Fluttertoast.showToast(
+                                      msg: 'Clicked to Helps',
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIos: 1,
+                                      backgroundColor: Colors.black87,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                },
+                                child: Text(
+                                  'Helps',
+                                  style: TextStyle(
+                                      color: Colors.black54,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                              ))
                         ],
                       ),
                     ),

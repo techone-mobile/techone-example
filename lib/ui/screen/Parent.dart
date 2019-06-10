@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techone/ui/screen/Notification.dart';
 import 'Account.dart';
 import 'HomeUI.dart';
 import '../../values/Values.dart';
@@ -36,10 +37,8 @@ class _MyParentPageState extends State<MyParentPage>
   final _bodyUI = [
     HomeUI(),
     SearchUI(),
-    Center(
-      child: Text('Notification'),
-    ),
-    Account(),
+    NotificationUI(),
+    AccountUI(),
   ];
 
   _onBottomNavigationBarTap(int index) {

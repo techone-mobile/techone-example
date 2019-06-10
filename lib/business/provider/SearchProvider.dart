@@ -77,6 +77,7 @@ class SearchProvider {
           if (data[i].tag[j].trim().toLowerCase().contains(_keyword)) {
             result.add(data[i]);
             print(data[i].keyword);
+            break;
           } else {
             print('Not match');
           }

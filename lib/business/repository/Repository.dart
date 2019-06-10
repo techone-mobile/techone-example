@@ -1,11 +1,13 @@
 import 'package:techone/business/provider/FlashDealProvider.dart';
 import 'package:techone/business/provider/MostSellProvider.dart';
 import 'package:techone/business/provider/NewProductProvider.dart';
+import 'package:techone/business/provider/NotificationProvider.dart';
 import 'package:techone/business/provider/SearchProvider.dart';
 import 'package:techone/business/provider/SlideProvider.dart';
 import 'package:techone/business/provider/SuggestionsProductProvider.dart';
 import 'package:techone/models/MostSellModel.dart';
 import 'package:techone/models/NewProductModel.dart';
+import 'package:techone/models/NotificationModel.dart';
 import 'package:techone/models/SearchHistoryModel.dart';
 import 'package:techone/models/SearchPreviewModel.dart';
 import 'package:techone/models/SlideModel.dart';
@@ -19,6 +21,7 @@ class Repository {
   NewProductProvider _newProductProvider = NewProductProvider();
   SuggestionsProductProvider _suggestionsProductProvider = SuggestionsProductProvider();
   SearchProvider _searchProvider = SearchProvider();
+  NotificationProvider _notificationProvider = NotificationProvider();
 
   List<SlideModel> loadSlide() {
     return _slideProvider.load();
@@ -46,5 +49,9 @@ class Repository {
 
   List<SearchPreviewModel> loadSearchPreview(String keyword) {
     return _searchProvider.loadPreview(keyword);
+  }
+
+  List<NotificationModel> loadNotification() {
+    return _notificationProvider.load();
   }
 }

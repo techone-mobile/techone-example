@@ -1,8 +1,6 @@
 class SearchPreviewModel {
-  String keyword;
-  String category;
+  String keyword, category,thumbnail;
   List<String> tag;
-  String thumbnail;
 
   SearchPreviewModel(this.keyword, this.category, this.tag, this.thumbnail);
 }
